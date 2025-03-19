@@ -1,4 +1,4 @@
-
+п»ї
 namespace WebApi_net8
 {
     public class Program
@@ -11,7 +11,7 @@ namespace WebApi_net8
             builder.Services.AddAuthorization();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            //Можем обратиться к swagger.json по URL localhost:____/swagger/v1/swagger.json
+            //РњРѕР¶РµРј РѕР±СЂР°С‚РёС‚СЊСЃСЏ Рє swagger.json РїРѕ URL localhost:____/swagger/v1/swagger.json
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -36,40 +36,40 @@ namespace WebApi_net8
             app.MapGet("/string", () => { return "Test1"; })
                 .WithOpenApi(operation => new(operation)
                 {
-                    Summary = "Это тестовый api",
-                    Description = "Возвращается string \"Test1\""
+                    Summary = "Р­С‚Рѕ С‚РµСЃС‚РѕРІС‹Р№ api",
+                    Description = "Р’РѕР·РІСЂР°С‰Р°РµС‚СЃСЏ string \"Test1\""
                 }
                 );
 
-            //Вернем объект кастомного класса. .WithOpenApi - позволяет добавлять доп информацию (документацию)
+            //Р’РµСЂРЅРµРј РѕР±СЉРµРєС‚ РєР°СЃС‚РѕРјРЅРѕРіРѕ РєР»Р°СЃСЃР°. .WithOpenApi - РїРѕР·РІРѕР»СЏРµС‚ РґРѕР±Р°РІР»СЏС‚СЊ РґРѕРї РёРЅС„РѕСЂРјР°С†РёСЋ (РґРѕРєСѓРјРµРЅС‚Р°С†РёСЋ)
             var d = new DayModel();
             app.MapGet("/class", () => { return d.GetCurrentDay(); })
                 .WithOpenApi(operation => new(operation)
                 {
-                    Summary = "Текущий день недели",
-                    Description = "Возвращается в виде строки текущий день недели используя класс DateTime и свойств .Today.DayOfWeek"
+                    Summary = "РўРµРєСѓС‰РёР№ РґРµРЅСЊ РЅРµРґРµР»Рё",
+                    Description = "Р’РѕР·РІСЂР°С‰Р°РµС‚СЃСЏ РІ РІРёРґРµ СЃС‚СЂРѕРєРё С‚РµРєСѓС‰РёР№ РґРµРЅСЊ РЅРµРґРµР»Рё РёСЃРїРѕР»СЊР·СѓСЏ РєР»Р°СЃСЃ DateTime Рё СЃРІРѕР№СЃС‚РІ .Today.DayOfWeek"
                 }
                 );
 
             app.MapGet("/number", () => { return 100; })
                 .WithOpenApi(operation => new(operation)
                 {
-                    Summary = "Просто число 100",
-                    Description = "Возвращается число 100"
+                    Summary = "РџСЂРѕСЃС‚Рѕ С‡РёСЃР»Рѕ 100",
+                    Description = "Р’РѕР·РІСЂР°С‰Р°РµС‚СЃСЏ С‡РёСЃР»Рѕ 100"
                 }
                 );
             app.MapGet("/date", () => { return DateTime.Now; })
                 .WithOpenApi(operation => new(operation)
                 {
-                    Summary = "Текущая дата",
-                    Description = "Возвращается в виде строки текущая дата"
+                    Summary = "РўРµРєСѓС‰Р°СЏ РґР°С‚Р°",
+                    Description = "Р’РѕР·РІСЂР°С‰Р°РµС‚СЃСЏ РІ РІРёРґРµ СЃС‚СЂРѕРєРё С‚РµРєСѓС‰Р°СЏ РґР°С‚Р°"
                 }
                 );
-            app.MapGet("/obj", () => { return new { День = "Пятница", Луна = "Полнолуние", Дата = DateTime.UtcNow }; })
+            app.MapGet("/obj", () => { return new { Р”РµРЅСЊ = "РџСЏС‚РЅРёС†Р°", Р›СѓРЅР° = "РџРѕР»РЅРѕР»СѓРЅРёРµ", Р”Р°С‚Р° = DateTime.UtcNow }; })
                 .WithOpenApi(operation => new(operation)
                 {
-                    Summary = "Объект с фиксированными свойствами",
-                    Description = "Возвращается в виде json объект анонимного типа"
+                    Summary = "РћР±СЉРµРєС‚ СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅС‹РјРё СЃРІРѕР№СЃС‚РІР°РјРё",
+                    Description = "Р’РѕР·РІСЂР°С‰Р°РµС‚СЃСЏ РІ РІРёРґРµ json РѕР±СЉРµРєС‚ Р°РЅРѕРЅРёРјРЅРѕРіРѕ С‚РёРїР°"
                 }
                 );
 
